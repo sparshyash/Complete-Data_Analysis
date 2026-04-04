@@ -154,4 +154,6 @@ print (Student._make(li))   # Iterable to NamedTuple
   
 # using _asdict() to return an OrderedDict() 
 print ("The OrderedDict instance using namedtuple is  : ") 
-print (S._asdict())   # OrderedDict to NamedTuple 
+print (S._asdict())   # NmaedTuple converted to OrdderedDict
+
+
