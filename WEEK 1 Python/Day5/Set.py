@@ -23,8 +23,8 @@ s = {"Geeks", "for", "Geeks"}
 print(s)
 
 # values of a set cannot be changed
-s[1] = "Hello"
-print(s)
+# s[1] = "Hello"
+# print(s)
 
 s = {"Geeks", "for", 10, 52.7, True}
 print(s)

@@ -50,6 +50,7 @@ d.clear()
 print(d)
 
 d = {1: 'Geeks', 2: 'For', 'age':22}
+print("age" in d)
 
 # Iterate over keys
 for key in d:

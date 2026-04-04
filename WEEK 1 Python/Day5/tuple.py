@@ -84,10 +84,10 @@ print(tup[4:9])
 
 # Deletion
 
-tup = (0, 1, 2, 3, 4)
-del tup
+#tup = (0, 1, 2, 3, 4)
+#del tup
 
-print(tup)
+#print(tup)
 
 # Unpacking with * Asterisk 
 
