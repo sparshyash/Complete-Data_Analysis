@@ -15,6 +15,27 @@ print(Counter({'A':3, 'B':5, 'C':2}))
 # Creating Counter using keyword arguments
 print(Counter(A=3, B=5, C=2))
 
+from collections import Counter
+
+data = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']
+counts = Counter(data)
+
+# Retrieve the top 2 most common elements
+print(counts.most_common(2)) 
+# Output: [('apple', 3), ('banana', 2)]
+
+from collections import Counter
+
+# Initial counts
+c = Counter(a=4, b=2, c=0)
+d = Counter(a=1, b=2, c=3, d=1)
+
+# Apply subtract
+c.subtract(d)
+
+print(c)
+# Output: Counter({'a': 3, 'b': 0, 'c': -3, 'd': -1})
+
 # OrderedDict
 # An OrderedDict is a dictionary that preserves the order in which keys are inserted. While regular dictionaries do this from Python 3.7+, OrderedDict also offers extra features like moving re-inserted keys to the end making it useful for order-sensitive operation
 
@@ -155,5 +176,137 @@ print (Student._make(li))   # Iterable to NamedTuple
 # using _asdict() to return an OrderedDict() 
 print ("The OrderedDict instance using namedtuple is  : ") 
 print (S._asdict())   # NmaedTuple converted to OrdderedDict
+
+#  DEQUE
+## Deque (Doubly Ended Queue) is the optimized list for quicker append and pop operations from both sides of the container. It provides O(1) time complexity for append and pop operations as compared to list with O(n) time complexity.
+
+from collections import deque
+  
+# Declaring deque
+queue = deque(['name','age','DOB']) 
+print(queue)
+
+# Inserting Elements in a deque
+
+from collections import deque 
+  
+# Initializing deque with initial values
+de = deque([1, 2, 3]) 
+  
+# Append 4 to the right end of deque
+de.append(4) 
+  
+# Print deque after appending to the right
+print("The deque after appending at right is :") 
+print(de) 
+  
+# Append 6 to the left end of deque
+de.appendleft(6) 
+  
+# Print deque after appending to the left
+print("The deque after appending at left is :") 
+print(de)
+
+# Deleting Elements 
+
+from collections import deque
+
+# Initialize deque with initial values
+de = deque([6, 1, 2, 3, 4])
+
+# Delete element from the right end (removes 4)
+de.pop()
+
+# Print deque after deletion from the right
+print("The deque after deleting from right is :") 
+print(de)
+
+# Delete element from the left end (removes 6)
+de.popleft()
+
+# Print deque after deletion from the left
+print("The deque after deleting from left is :") 
+print(de)
+
+# USERDICT
+# UserDict is a dictionary-like container that acts as a wrapper around the dictionary objects. This container is used when someone wants to create their own dictionary with some modified or new functionality. 
+
+from collections import UserDict 
+
+# Creating a dictionary where deletion is not allowed
+class MyDict(UserDict): 
+      
+    # Prevents using 'del' on dictionary
+    def __del__(self): 
+        raise RuntimeError("Deletion not allowed") 
+          
+    # Prevents using pop() on dictionary
+    def pop(self, s=None): 
+        raise RuntimeError("Deletion not allowed") 
+          
+    # Prevents using popitem() on dictionary
+    def popitem(self, s=None): 
+        raise RuntimeError("Deletion not allowed") 
+      
+# Create an instance of MyDict
+d = MyDict({'a': 1, 'b': 2, 'c': 3})
+# d.pop(1)  this creates traceback error 
+
+# USERLIST
+
+# UserList is a list like container that acts as a wrapper around the list objects. This is useful when someone wants to create their own list with some modified or additional functionality.
+
+from collections import UserList 
+
+# Creating a list where deletion is not allowed
+class MyList(UserList): 
+      
+    # Prevents using remove() on list
+    def remove(self, s=None): 
+        raise RuntimeError("Deletion not allowed") 
+          
+    # Prevents using pop() on list
+    def pop(self, s=None): 
+        raise RuntimeError("Deletion not allowed") 
+      
+# Create an instance of MyList
+L = MyList([1, 2, 3, 4]) 
+print("Original List") 
+
+# Append 5 to the list
+L.append(5) 
+print("After Insertion") 
+print(L) 
+# Attempt to remove an item (will raise error)
+#  L.remove()  this creates error 
+
+# UserString 
+
+# UserString is a string like container and just like UserDict and UserList it acts as a wrapper around string objects. It is used when someone wants to create their own strings with some modified or additional functionality. 
+
+from collections import UserString 
+   
+# Creating a Mutable String 
+class Mystring(UserString): 
+      
+    # Function to append to string
+    def append(self, s): 
+        self.data += s 
+          
+    # Function to remove from string 
+    def remove(self, s): 
+        self.data = self.data.replace(s, "") 
+      
+# Driver's code 
+s1 = Mystring("Geeks") 
+print("Original String:", s1.data) 
+  
+# Appending to string 
+s1.append("s") 
+print("String After Appending:", s1.data) 
+  
+# Removing from string 
+s1.remove("e") 
+print("String after Removing:", s1.data)
 
 

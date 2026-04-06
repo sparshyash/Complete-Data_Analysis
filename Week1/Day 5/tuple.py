@@ -98,3 +98,9 @@ a, *b, c = tup
 print(a) 
 print(b) 
 print(c)
+
+ytup=tuple((x for x in range(1,4)))
+print(ytup)
+# ytup.append(5)  # This will raise an AttributeError since tuples are immutable
+
+print(type(ytup))
