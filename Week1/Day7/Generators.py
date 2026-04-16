@@ -23,6 +23,7 @@ def fun():
 for val in fun(): 
     print(val)
     
+#Yield: is used in generator functions to provide a sequence of values over time. When yield is executed, it pauses the function, returns the current value and retains the state of the function. This allows the function to continue from same point when called again, making it ideal for generating large or complex sequences efficiently.
 
 sq = (x*x for x in range(1, 6))
 for i in sq:
