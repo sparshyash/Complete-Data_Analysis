@@ -23,11 +23,16 @@ with open(file_path, "w") as file:
 
 print("File written successfully")
 
-# When using with, the file closes automatically at the end of the block.
+# When using with, the file closes automatically at the end of the block
+# tumhe close krne ki jarurat ni hai manually .
 
+
+#import os
+#if os.path.isfile(filepath):
+#   os.remove(filepath)
 
 try:
-    file = open("geeks.txt", "r")
+    file = open("geek.txt", "r")
     content = file.read()
     print(content)
 finally:
@@ -40,3 +45,16 @@ lines = ["First line\n", "Second line\n", "Third line\n"]
 
 with open(file_path, "w") as f:
     f.writelines(lines)
+
+
+# copying content from one file to another
+
+import shutil
+
+source_file = 'iss.txt'
+destination_file = 'geek.txt'
+
+# Copies the contents of source.txt into destination.txt
+shutil.copyfile(source_file, destination_file)
+
+print("File copied successfully!")

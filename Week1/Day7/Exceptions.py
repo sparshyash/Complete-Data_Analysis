@@ -61,4 +61,5 @@ try:
     set(-5)
 except ValueError as e:
     print(e)
+    # raise e # Re-raises the exception after handling it, allowing it to propagate further if needed.
     
