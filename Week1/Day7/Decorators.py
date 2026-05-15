@@ -133,7 +133,7 @@ class Person:
     pass
 print(Person.class_name)
 
-fun(cls)
+fun(Person) # This applies the fun decorator to the Person class, which adds a new attribute class_name to Person. The value of class_name is set to the name of class (Person.__name__).
     
 # This decorator adds a new attribute, class_name, to class cls. The value of class_name is set to the name of class (cls.__name__).
 # @add_class_name: This applies the add_class_name decorator to the Person class.
@@ -212,4 +212,36 @@ print(c.area)
 
 ## CHaining Multiple Decorators 
 
+def decor1(func): 
+    def inner(): 
+        x = func() 
+        return x * x 
+    return inner 
 
+def decor(func): 
+    def inner(): 
+        x = func() 
+        return 2 * x 
+    return inner 
+
+@decor1
+@decor
+def num(): 
+    return 10  # phle decor function call hoga, jo 10 ko 2 se multiply karega, aur phir decor1 function call hoga, jo us result ko square karega.
+
+@decor
+@decor1
+def num2():
+    return 10  # phle decor1 function call hoga, jo 10 ko square karega, aur phir decor function call hoga, jo us result ko 2 se multiply karega.
+  
+print(num()) 
+print(num2())
+
+# Real-World Uses of Decorators
+
+
+# Logging: Track function calls (e.g., @logger).
+# Authentication: Restrict access in web apps (e.g., Flask/Django).
+# Rate Limiting: Control API usage per user.
+# Caching: Store results using functools.lru_cache.
+# Retry Logic: Automatically retry failed network calls.
